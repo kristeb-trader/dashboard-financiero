@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Financiero Histórico | Deuda y Ahorro (2020-2026)</title>
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="Dashboard financiero interactivo de una sola página para el análisis del comportamiento de deuda y ahorro personal de 2020 a 2026 en pesos colombianos (COP).">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- ApexCharts CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <span class="badge-accent">ANÁLISIS PERSONAL</span>
+                <h1 id="main-title">Evolución de Deuda y Ahorro</h1>
+                <p class="subtitle">Histórico consolidado del comportamiento financiero (2020 - 2026) en pesos colombianos (COP)</p>
+            </div>
+            <div class="header-right">
+                <div class="time-range">
+                    <span class="dot-active"></span>
+                    <span>2020 - 2026</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI Cards Grid -->
+        <section class="kpis-grid" aria-label="Tarjetas de Indicadores Clave">
+            
+            <!-- KPI 1: Deuda Actual -->
+            <div class="kpi-card card-debt" id="kpi-debt">
+                <div class="kpi-header">
+                    <div class="kpi-title-area">
+                        <div class="icon-wrapper bg-debt-soft">
+                            <!-- Icon: Trending Down / Debt -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-debt"><path d="m3 16 2.5-2.5 2.5 2.5 5-5 1.5 1.5 5.5-5.5"/><path d="m7 21h14v-14"/></svg>
+                        </div>
+                        <span class="kpi-title">Deuda Actual (2026)</span>
+                    </div>
+                    <span class="badge-status badge-success">↓ 47.7%</span>
+                </div>
+                <div class="kpi-value-container">
+                    <h2 class="kpi-value" id="val-debt">$46.178.000</h2>
+                    <span class="currency-tag">COP</span>
+                </div>
+                <div class="kpi-footer">
+                    <div class="sparkline-container">
+                        <!-- Sparkline SVG Debt: Peak in 2023, then drop -->
+                        <svg class="sparkline" viewBox="0 0 100 30" width="100%" height="30">
+                            <defs>
+                                <linearGradient id="spark-debt-grad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="var(--color-debt)" stop-opacity="0.4"/>
+                                    <stop offset="100%" stop-color="var(--color-debt)" stop-opacity="0.0"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="sparkline-fill" d="M 0 5 L 16 7 L 32 6 L 48 5 L 64 16 L 80 23 L 96 28 L 96 30 L 0 30 Z" fill="url(#spark-debt-grad)"></path>
+                            <path class="sparkline-line line-debt" d="M 0 5 L 16 7 L 32 6 L 48 5 L 64 16 L 80 23 L 96 28" fill="none" stroke="var(--color-debt)" stroke-width="2"></path>
+                            <circle cx="96" cy="28" r="3" fill="var(--color-debt)"></circle>
+                        </svg>
+                    </div>
+                    <p class="kpi-desc">Reducción total de $42.162.000 COP desde el inicio</p>
+                </div>
+            </div>
+
+            <!-- KPI 2: Ahorro Actual -->
+            <div class="kpi-card card-savings" id="kpi-savings">
+                <div class="kpi-header">
+                    <div class="kpi-title-area">
+                        <div class="icon-wrapper bg-savings-soft">
+                            <!-- Icon: Wallet / Savings -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-savings"><path d="M19 7h-8a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M20 11.5a2.5 2.5 0 0 0 0 5"/><path d="M9 11H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6"/><path d="M13 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>
+                        </div>
+                        <span class="kpi-title">Ahorro Actual (2026)</span>
+                    </div>
+                    <span class="badge-status badge-warning">↓ 36.4%</span>
+                </div>
+                <div class="kpi-value-container">
+                    <h2 class="kpi-value" id="val-savings">$11.328.000</h2>
+                    <span class="currency-tag">COP</span>
+                </div>
+                <div class="kpi-footer">
+                    <div class="sparkline-container">
+                        <!-- Sparkline SVG Savings: Peak in 2025, drop in 2026 -->
+                        <svg class="sparkline" viewBox="0 0 100 30" width="100%" height="30">
+                            <defs>
+                                <linearGradient id="spark-savings-grad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="var(--color-savings)" stop-opacity="0.4"/>
+                                    <stop offset="100%" stop-color="var(--color-savings)" stop-opacity="0.0"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="sparkline-fill" d="M 0 27 L 16 19 L 32 20 L 48 21 L 64 20 L 80 16 L 96 22 L 96 30 L 0 30 Z" fill="url(#spark-savings-grad)"></path>
+                            <path class="sparkline-line line-savings" d="M 0 27 L 16 19 L 32 20 L 48 21 L 64 20 L 80 16 L 96 22" fill="none" stroke="var(--color-savings)" stroke-width="2"></path>
+                            <circle cx="96" cy="22" r="3" fill="var(--color-savings)"></circle>
+                        </svg>
+                    </div>
+                    <p class="kpi-desc">36.4% por debajo del máximo ($17.817.000 en 2025)</p>
+                </div>
+            </div>
+
+            <!-- KPI 3: Patrimonio Neto (Ahorro - Deuda = -$34.850.000) -->
+            <div class="kpi-card card-networth negative" id="kpi-networth">
+                <div class="kpi-header">
+                    <div class="kpi-title-area">
+                        <div class="icon-wrapper bg-deficit-soft">
+                            <!-- Icon: Alert Triangle for negative networth -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-deficit"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <span class="kpi-title">Patrimonio Neto (2026)</span>
+                    </div>
+                    <span class="badge-status badge-deficit">Déficit</span>
+                </div>
+                <div class="kpi-value-container">
+                    <h2 class="kpi-value text-glow-red" id="val-networth">-$34.850.000</h2>
+                    <span class="currency-tag tag-deficit">COP</span>
+                </div>
+                <div class="kpi-footer">
+                    <div class="deficit-progress-bar">
+                        <div class="deficit-progress-fill" style="width: 24.5%;"></div> <!-- Ahorro representa el 24.5% de la deuda -->
+                    </div>
+                    <p class="kpi-desc text-danger">El ahorro cubre el 24.5% de las obligaciones pendientes</p>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Main Chart Section: Debt vs Savings Line Area -->
+        <main class="dashboard-charts-layout">
+            
+            <section class="chart-card main-chart-box" id="main-chart-card">
+                <div class="chart-header">
+                    <div>
+                        <h3 class="chart-title">Trayectoria de Saldos Financieros</h3>
+                        <p class="chart-subtitle">Deuda vs. Ahorro Acumulado (COP). Observa el punto de inflexión y desapalancamiento acelerado desde 2024.</p>
+                    </div>
+                    <div class="chart-legend-custom">
+                        <div class="legend-item"><span class="indicator bg-debt"></span> Deuda</div>
+                        <div class="legend-item"><span class="indicator bg-savings"></span> Ahorro</div>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <div id="chart-trajectory" style="min-height: 380px;"></div>
+                </div>
+            </section>
+
+            <!-- Mixed Charts (Side-by-side) -->
+            <div class="secondary-charts-grid">
+                
+                <!-- Chart 2: Debt reduction details -->
+                <section class="chart-card" id="debt-reduction-chart-card">
+                    <div class="chart-header">
+                        <div>
+                            <h3 class="chart-title">Reducción de Deuda Anual</h3>
+                            <p class="chart-subtitle">Flujo anual amortizado en COP y tasa de disminución porcentual por periodo.</p>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <div id="chart-debt-reduction" style="min-height: 280px;"></div>
+                    </div>
+                </section>
+
+                <!-- Chart 3: Savings increase details -->
+                <section class="chart-card" id="savings-increase-chart-card">
+                    <div class="chart-header">
+                        <div>
+                            <h3 class="chart-title">Variación del Ahorro Anual</h3>
+                            <p class="chart-subtitle">Flujo neto aportado/retirado en COP y tasa de aumento por periodo.</p>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <div id="chart-savings-increase" style="min-height: 280px;"></div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Table of Records -->
+            <section class="table-card" id="table-card-container">
+                <div class="table-header">
+                    <div>
+                        <h3 class="chart-title">Registros Históricos y Consolidado</h3>
+                        <p class="chart-subtitle">Tabla de datos fuente con totales de flujos y saldos del periodo 2020 - 2026.</p>
+                    </div>
+                    <button class="btn-export" id="btn-export-csv">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span>Exportar CSV</span>
+                    </button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="data-table" id="financial-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">Año</th>
+                                <th scope="col" class="text-right">Saldo Deuda</th>
+                                <th scope="col" class="text-right">Reducción Deuda</th>
+                                <th scope="col" class="text-center">% Disminución</th>
+                                <th scope="col" class="text-right">Saldo Ahorro</th>
+                                <th scope="col" class="text-right">Aumento Ahorro</th>
+                                <th scope="col" class="text-center">% Aumento</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Populated dynamically via JS for clean formatting and rendering -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="totals-row">
+                                <td class="text-center font-semibold">TOTALES / CIERRE</td>
+                                <td class="text-right font-semibold" id="total-deuda-saldo">
+                                    $46.178.000
+                                    <span class="total-type-tag">Saldo</span>
+                                </td>
+                                <td class="text-right font-semibold text-green" id="total-deuda-red">
+                                    $42.162.000
+                                    <span class="total-type-tag text-green">Flujo</span>
+                                </td>
+                                <td class="text-center font-semibold text-green relative-tooltip" id="total-deuda-pct">
+                                    47,73%
+                                    <div class="table-tooltip">Porcentaje de amortización total respecto al saldo inicial de 2019 ($88.340.000 COP).</div>
+                                </td>
+                                <td class="text-right font-semibold" id="total-ahorro-saldo">
+                                    $11.328.000
+                                    <span class="total-type-tag">Saldo</span>
+                                </td>
+                                <td class="text-right font-semibold text-green" id="total-ahorro-inc">
+                                    $9.328.000
+                                    <span class="total-type-tag text-green">Flujo</span>
+                                </td>
+                                <td class="text-center font-semibold text-green relative-tooltip" id="total-ahorro-pct">
+                                    82,34%
+                                    <div class="table-tooltip">Porcentaje de aumento total acumulado sobre el saldo final de 2026.</div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+        
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Dashboard de Finanzas Personales. Desarrollado con tecnología de visualización moderna. &copy; 2026.</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Execution -->
+    <script src="app.js"></script>
+</body>
+</html>
