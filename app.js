@@ -161,6 +161,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         dataLabels: { enabled: false },
+        markers: {
+            size: 5,
+            colors: ['#ff5e62', '#10b981'],
+            strokeColors: '#080c14',
+            strokeWidth: 2,
+            hover: {
+                size: 7
+            }
+        },
+        grid: {
+            ...commonChartOptions.grid,
+            xaxis: {
+                lines: {
+                    show: true
+                }
+            },
+            yaxis: {
+                lines: {
+                    show: true
+                }
+            }
+        },
         series: [
             { name: 'Deuda', data: debts },
             { name: 'Ahorro', data: savings }
@@ -249,13 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 colors: ['#ffffff', '#ffb900']
             },
             background: {
-                enabled: true,
-                foreColor: '#ffffff',
-                padding: 4,
-                borderRadius: 4,
-                borderWidth: 1,
-                borderColor: 'rgba(0,0,0,0.4)',
-                opacity: 0.85
+                enabled: false
             },
             formatter: function (val, opts) {
                 if (opts.seriesIndex === 0) {
@@ -362,13 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 colors: ['#ffffff', '#00f2fe']
             },
             background: {
-                enabled: true,
-                foreColor: '#ffffff',
-                padding: 4,
-                borderRadius: 4,
-                borderWidth: 1,
-                borderColor: 'rgba(0,0,0,0.4)',
-                opacity: 0.85
+                enabled: false
             },
             formatter: function (val, opts) {
                 if (opts.seriesIndex === 0) {
